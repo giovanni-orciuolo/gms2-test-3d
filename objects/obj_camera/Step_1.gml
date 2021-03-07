@@ -1,22 +1,41 @@
-/// @description First Person Camera
-
 if (!window_has_focus()) {
 	return;
 }
 
-direction += (display_mouse_get_x() - display_get_width() / 2) / 10;
-pitch = clamp(pitch + (display_mouse_get_y() - display_get_height() / 2) / 10, -80, 80);
+if (keyboard_check(vk_up)) {
+	distance += 10;
+}
+if (keyboard_check(vk_down)) {
+	distance -= 10;
+}
+if (keyboard_check_pressed(vk_right) && yaw == yaw_goal) {
+	yaw_goal -= 45;
+}
+if (keyboard_check_pressed(vk_left) && yaw == yaw_goal) {
+	yaw_goal += 45;
+}
 
-display_mouse_set(display_get_width() / 2, display_get_height() / 2);
+if (keyboard_check(vk_tab)) {
+	obj_world.ship.xrot += 10;
+}
 
-var vertical = keyboard_check(ord("W")) - keyboard_check(ord("S"));
-var horizontal = keyboard_check(ord("D")) - keyboard_check(ord("A"));
- 
-var move_direction = point_direction(0, 0, horizontal, vertical);
-var move_distance = point_distance(0, 0, horizontal, vertical);
- 
-x += dcos(move_direction + direction + 90) * move_distance * 4;
-y -= dsin(move_direction + direction + 90) * move_distance * 4;
+distance = clamp(distance, 0, 300);
+
+if (yaw < yaw_goal) {
+	yaw += yaw_step;
+}
+if (yaw > yaw_goal) {
+	yaw -= yaw_step;
+}
+
+// Normalize yaw
+if (yaw > 360) {
+	yaw = 0;
+}
+if (yaw_goal > 360) {
+	yaw_goal = 0;
+}
+
 
 if (keyboard_check(vk_escape)) {
 	game_end();

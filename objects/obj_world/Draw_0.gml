@@ -1,0 +1,1 @@
+draw_floor(floor_vbuf, spr_grass);

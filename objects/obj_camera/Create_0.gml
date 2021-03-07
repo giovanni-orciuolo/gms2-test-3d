@@ -12,9 +12,11 @@ projection_matrix = matrix_build_projection_perspective_fov(
 	1, 32000
 );
 camera_set_proj_mat(camera, projection_matrix);
-view_set_camera(0, camera);
 camera_set_update_script(camera, camera_update);
+view_set_camera(0, camera);
 
-pitch = 0;
+yaw = 0;
+yaw_step = 2.5;
+yaw_goal = 0;
 z = 32;
-direction = 0;
+distance = 300;

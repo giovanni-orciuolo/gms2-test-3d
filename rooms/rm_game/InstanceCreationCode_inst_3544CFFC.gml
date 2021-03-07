@@ -1,0 +1,1 @@
+model = load_model_d3d("cube.d3d");

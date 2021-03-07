@@ -16,12 +16,8 @@ vertex_format_add_color();
 // Save the newly created vertex format in a variable
 vertex_format = vertex_format_end();
 
-draw_set_lighting(true);
-draw_light_define_point(1, 0, 0, 0, room_width, c_white);
-draw_light_enable(1, true);
-draw_light_define_point(2, 600, 600, 200, room_width, c_white);
-draw_light_enable(2, true);
+ship = instance_create_depth(500, 0, depth, obj_model);
+ship.model = load_model_obj("merry.obj", "merry.mtl", c_aqua, 1, false);
+ship.z = -100;
 
-var ship = instance_create_depth(500, 0, depth, obj_model);
-ship.model = load_model_obj("merry.obj", "merry.mtl", c_white, 1, true);
-ship.z = 0;
+floor_vbuf = init_floor();
