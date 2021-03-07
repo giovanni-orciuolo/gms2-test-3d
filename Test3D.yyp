@@ -3,6 +3,7 @@
     {"id":{"name":"obj_billboard","path":"objects/obj_billboard/obj_billboard.yy",},"order":4,},
     {"id":{"name":"obj_model","path":"objects/obj_model/obj_model.yy",},"order":1,},
     {"id":{"name":"obj_player","path":"objects/obj_player/obj_player.yy",},"order":3,},
+    {"id":{"name":"shd_light","path":"shaders/shd_light/shd_light.yy",},"order":1,},
     {"id":{"name":"spr_tree","path":"sprites/spr_tree/spr_tree.yy",},"order":1,},
     {"id":{"name":"load_model_d3d","path":"scripts/load_model_d3d/load_model_d3d.yy",},"order":4,},
     {"id":{"name":"obj_camera","path":"objects/obj_camera/obj_camera.yy",},"order":0,},
